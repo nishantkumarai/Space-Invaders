@@ -6,7 +6,7 @@ int main() {
     sf::VideoMode videoMode = *(new sf::VideoMode(800, 600));
 
     // Create a window object with specific dimensions and a title
-    sf::RenderWindow* window = new sf::RenderWindow(videoMode, "My SFML Window");
+    sf::RenderWindow* window = new sf::RenderWindow(videoMode, "SFML Window");
 
     // Game loop to keep the window open
     while (window->isOpen()) {
@@ -18,31 +18,32 @@ int main() {
         }
 
         // Clear the window
-        window->clear(sf::Color::White);
+        window->clear(sf::Color::Blue);
 
-        // Draw your content here...
-        
+
         // Draw a circle
         sf::CircleShape circle(50); // Radius 50
-        circle.setFillColor(sf::Color::Green);
-        circle.setPosition(400, 300); // Set position
+        circle.setFillColor(sf::Color::Red);
+        circle.setPosition(400, 400); // Set position
         window->draw(circle);
 
-        // Draw a square
-        sf::RectangleShape square(sf::Vector2f(100, 100));
-        square.setFillColor(sf::Color::Red); // Red color
-        square.setPosition(300.f, 100.f); // Set position
-        window->draw(square);
+        sf::Texture outscal_texture;
+        outscal_texture.loadFromFile("assets/textures/outscal_logo.png");
 
-        // Draw a tringle
-        sf::ConvexShape triangle;
-        triangle.setPointCount(3);
-        triangle.setPoint(0, sf::Vector2f(500, 100));  // Top point
-        triangle.setPoint(1, sf::Vector2f(650, 250));  // Right point
-        triangle.setPoint(2, sf::Vector2f(350, 250));  // Left point
-        triangle.setFillColor(sf::Color::Blue); // Blue color
+        sf::Sprite outscal_sprite;
+        outscal_sprite.setTexture(outscal_texture);
 
-        window->draw(triangle);
+        outscal_sprite.setPosition(200, 100); // Position
+        outscal_sprite.setRotation(45); // Rotation in degrees
+        outscal_sprite.setScale(0.5, 0.5); // Scale factor
+
+        window->draw(outscal_sprite);
+
+        sf::Font font;
+        font.loadFromFile("assets/fonts/OpenSans.ttf"); 
+        sf::Text text("SFML is Awesome", font, 50); 
+        text.setFillColor(sf::Color::White);
+        window->draw(text);
 
 
         // Display what was drawn
