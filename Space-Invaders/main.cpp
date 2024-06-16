@@ -1,3 +1,5 @@
+#include <iostream>
+#include <SFML/Graphics.hpp>
 
 class Player {
 
@@ -6,7 +8,7 @@ private:
     // Private Properties
     int health = 3;
     sf::Vector2f position = sf::Vector2f(200.0f, 100.0f);
-    int movement_speed = 5;
+    int movement_speed = 1;
     int player_score = 0;
 
 public:
@@ -23,6 +25,18 @@ public:
     void setScore(int newScore) {
         player_score = newScore;
     };
+
+    void move(float offsetX) {
+        position.x += offsetX;
+    }
+
+    int getMoveSpeed() {
+        return movement_speed;
+    }
+
+    sf::Vector2f getPosition() {
+        return position;
+    }
 
     //New methods
     void takeDamage() {};
@@ -53,10 +67,10 @@ int main() {
 
         // Handle keyboard input
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) {
-            player.move();
+            player.move(-1.0f * player.getMoveSpeed());
         }
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) {
-            player.move();
+            player.move(1.0f * player.getMoveSpeed());
         }
 
         // Clear the window
