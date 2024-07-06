@@ -34,4 +34,7 @@ public:
     int getMoveSpeed();
     sf::Vector2f getPlayerPosition();
 
+    void moveLeft();
+    void moveRight();
+
 };
