@@ -2,7 +2,8 @@
 #include "../Header/GameService.h"
 #include "../Header/GraphicService.h"
 
-EventService::EventService() { game_window = nullptr; }
+EventService::EventService() 
+{ game_window = nullptr; }
 
 EventService::~EventService() = default; //calls the default destructor
 
@@ -29,7 +30,10 @@ void EventService::processEvents()
     }
 }
 
-bool EventService::hasQuitGame() { return (isKeyboardEvent() && pressedEscapeKey()); } // only true if the ESC key is pressed and a keyboard event has been registered
+bool EventService::hasQuitGame() 
+{ 
+    return (isKeyboardEvent() && pressedEscapeKey()); 
+} // only true if the ESC key is pressed and a keyboard event has been registered
 
 //checks for if a keyboard key has been pressed
 bool EventService::isKeyboardEvent() { return game_event.type == sf::Event::KeyPressed; }
@@ -40,3 +44,6 @@ bool EventService::pressedEscapeKey() { return game_event.key.code == sf::Keyboa
 bool EventService::isGameWindowOpen() { return game_window != nullptr; }
 
 bool EventService::gameWindowWasClosed() { return game_event.type == sf::Event::Closed; }
+
+bool EventService::pressedLeftKey() { return game_event.key.code == sf::Keyboard::Left; }
+bool EventService::pressedRightKey() { return game_event.key.code == sf::Keyboard::Right; }

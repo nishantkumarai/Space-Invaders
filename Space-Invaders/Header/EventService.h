@@ -11,6 +11,7 @@ private:
 	bool isGameWindowOpen();
 	bool gameWindowWasClosed(); //for the condition we already had - the title bar cross.
 	bool hasQuitGame(); //for our new 'ESC' condition
+	
 
 
 
@@ -23,5 +24,7 @@ public:
 	void processEvents(); // while window is open we will check for events
 	bool pressedEscapeKey();
 	bool isKeyboardEvent();
+	bool pressedLeftKey();
+	bool pressedRightKey();
 
 };
