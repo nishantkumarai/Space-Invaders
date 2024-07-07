@@ -3,27 +3,31 @@
 //#include "../Player/PlayerModel.h"
 //#include "../Player/PlayerView.h"
 
-enum class PlayerState;
-class PlayerView;
-class PlayerModel;
 
-class PlayerController
+namespace Player
 {
-private:
-    PlayerView* player_view;
-    PlayerModel* player_model;
+    enum class PlayerState;
+    class PlayerView;
+    class PlayerModel;
 
-    void processPlayerInput();
-    void moveLeft();
-    void moveRight();
+    class PlayerController
+    {
+    private:
+        PlayerView* player_view;
+        PlayerModel* player_model;
 
-public:
-    PlayerController();
-    ~PlayerController();
+        void processPlayerInput();
+        void moveLeft();
+        void moveRight();
 
-    void initialize();
-    void update();
-    void render();
+    public:
+        PlayerController();
+        ~PlayerController();
 
-    sf::Vector2f getPlayerPosition();
-};
+        void initialize();
+        void update();
+        void render();
+
+        sf::Vector2f getPlayerPosition();
+    };
+}
