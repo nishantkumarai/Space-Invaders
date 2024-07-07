@@ -32,6 +32,7 @@ namespace Main
 	{
 		service_locator->initialize();
 		initializeVariables();
+		showMainMenu();
 	}
 
 	void GameService::initializeVariables()
@@ -66,6 +67,11 @@ namespace Main
 	bool GameService::isRunning() {
 		// Returns true if the game window is open, indicating the game is still running
 		return service_locator->getGraphicService()->isGameWindowOpen();
+	}
+
+	void GameService::showMainMenu()
+	{
+		setGameState(GameState::MAIN_MENU);
 	}
 
 	void GameService::setGameState(GameState new_state) { current_state = new_state; }

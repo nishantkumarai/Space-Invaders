@@ -1,7 +1,7 @@
-#include "../../Header/UI/MainMenu/MainMenuUIController.h"
-#include "../../Header/Main/GameService.h"
-#include "../../Header/Global/ServiceLocator.h"
-#include "../../Header/Graphic/GraphicService.h"
+#include "../../header/UI/MainMenu/MainMenuUIController.h"
+#include "../../header/Main/GameService.h"
+#include "../../header/Global/ServiceLocator.h"
+#include "../../header/Graphic/GraphicService.h"
 
 namespace UI
 {
@@ -10,7 +10,7 @@ namespace UI
         using namespace Global;
         using namespace Main;
         using namespace Graphic;
-
+        using namespace Event;
 
         MainMenuUIController::MainMenuUIController() { game_window = nullptr; }
 
@@ -22,9 +22,9 @@ namespace UI
         }
 
         void MainMenuUIController::initializeBackgroundImage()
-        {   //check if a texture loaded properly
+        {
             if (background_texture.loadFromFile(background_texture_path))
-            {   //if it did then set the bg image and scale it
+            {
                 background_sprite.setTexture(background_texture);
                 scaleBackgroundImage();
             }
@@ -32,10 +32,6 @@ namespace UI
 
         void MainMenuUIController::scaleBackgroundImage()
         {
-            /*
-            // Don't worry about the static_cast we will discuss it later. For now know that this function is
-            // just scaling our background image based on the size of the game window
-            */
             background_sprite.setScale(
                 static_cast<float>(game_window->getSize().x) / background_sprite.getTexture()->getSize().x,
                 static_cast<float>(game_window->getSize().y) / background_sprite.getTexture()->getSize().y
@@ -44,16 +40,14 @@ namespace UI
 
         void MainMenuUIController::initializeButtons()
         {
-            // check if the tectures loaded
             if (loadButtonTexturesFromFile())
             {
-                // order of function calls matter
                 setButtonSprites();
                 scaleAllButttons();
                 positionButtons();
             }
         }
-        // only returns true if all tectures are loaded
+
         bool MainMenuUIController::loadButtonTexturesFromFile()
         {
             return play_button_texture.loadFromFile(play_button_texture_path) &&
@@ -67,7 +61,6 @@ namespace UI
             instructions_button_sprite.setTexture(instructions_button_texture);
             quit_button_sprite.setTexture(quit_button_texture);
         }
-
 
         void MainMenuUIController::scaleAllButttons()
         {
@@ -92,9 +85,10 @@ namespace UI
             instructions_button_sprite.setPosition({ x_position, 700.f });
             quit_button_sprite.setPosition({ x_position, 900.f });
         }
+
         void MainMenuUIController::update()
         {
-
+            processButtonInteractions();
         }
 
         void MainMenuUIController::render()
@@ -106,5 +100,28 @@ namespace UI
         }
 
 
+        void MainMenuUIController::processButtonInteractions()
+        {
+            sf::Vector2f mouse_position = sf::Vector2f(sf::Mouse::getPosition(*game_window));
+
+            if (clickedButton(&play_button_sprite, mouse_position))
+            {
+                GameService::setGameState(GameState::GAMEPLAY);
+            }
+
+            if (clickedButton(&instructions_button_sprite, mouse_position))
+            {
+                printf("Clicked Instruction Button \n");
+            }
+
+            if (clickedButton(&quit_button_sprite, mouse_position))
+                game_window->close();
+        }
+
+        bool MainMenuUIController::clickedButton(sf::Sprite* button_sprite, sf::Vector2f mouse_position)
+        {
+            EventService* event_service = ServiceLocator::getInstance()->getEventService();
+            return event_service->pressedLeftMouseButton() && button_sprite->getGlobalBounds().contains(mouse_position);
+        }
     }
 }

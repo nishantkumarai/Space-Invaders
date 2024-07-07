@@ -23,6 +23,7 @@ namespace Graphic
 		void setVideoMode(); // Method for setting our video mode
 		void onDestroy(); // method to run when window is deleted
 
+
 	public:
 		GraphicService();
 		~GraphicService(); //cleanup
