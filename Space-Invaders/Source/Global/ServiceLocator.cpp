@@ -67,7 +67,12 @@ namespace Global
 	void ServiceLocator::render()
 	{
 		graphic_service->render();
-		//no event service because nothing to render
+		
+		// switched orders
+		
+		ui_service->render();
+		player_service->render();
+		
 	}
 
 	GraphicService* ServiceLocator::getGraphicService() { return graphic_service; }
