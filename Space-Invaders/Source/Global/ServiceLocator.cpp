@@ -1,4 +1,5 @@
 #include "../../Header/Global/ServiceLocator.h"
+#include "../../Header/Main/GameService.h"
 
 namespace Global
 {
@@ -7,6 +8,8 @@ namespace Global
 	using namespace Event;
 	using namespace Player;
 	using namespace UI;
+	using namespace Main;
+	using namespace Enemy;
 
 	ServiceLocator::ServiceLocator()
 	{
@@ -15,6 +18,7 @@ namespace Global
 		player_service = nullptr;
 		time_service = nullptr;
 		ui_service = nullptr;
+		enemy_service = nullptr;
 		createServices();
 	}
 	ServiceLocator::~ServiceLocator()
@@ -29,6 +33,7 @@ namespace Global
 		player_service = new PlayerService();
 		time_service = new TimeService();
 		ui_service = new UIService();
+		enemy_service = new EnemyService();
 	}
 
 	void ServiceLocator::clearAllServices()
@@ -38,6 +43,7 @@ namespace Global
 		delete(player_service);
 		delete(time_service);
 		delete(ui_service);
+		delete(enemy_service);
 	}
 
 	ServiceLocator* ServiceLocator::getInstance()
@@ -53,25 +59,35 @@ namespace Global
 		player_service->initialize();
 		time_service->initialize();
 		ui_service->initialize();
+		enemy_service->initialize();
 	}
 
 	void ServiceLocator::update()
 	{
 		graphic_service->update();
-		event_service->update();
-		player_service->update();
 		time_service->update();
+		event_service->update();
+
+		//Only update if the game state is correct
+		if (GameService::getGameState() == GameState::GAMEPLAY)
+		{
+			player_service->update();
+			enemy_service->update();
+		}
+
 		ui_service->update();
 	}
 
 	void ServiceLocator::render()
 	{
 		graphic_service->render();
-		
-		// switched orders
-		
+		if (GameService::getGameState() == GameState::GAMEPLAY)
+		{
+			player_service->render();
+			enemy_service->render();
+		}
+
 		ui_service->render();
-		player_service->render();
 		
 	}
 
@@ -80,4 +96,5 @@ namespace Global
 	PlayerService* ServiceLocator::getPlayerService() { return player_service; }
 	TimeService* ServiceLocator::getTimeService() { return time_service; }
 	UIService* ServiceLocator::getUIService() { return ui_service; }
+	EnemyService* ServiceLocator::getEnemyService() { return enemy_service; }
 }
