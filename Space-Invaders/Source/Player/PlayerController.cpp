@@ -50,12 +50,12 @@ namespace Player
 	{
 		EventService* event_service = ServiceLocator::getInstance()->getEventService();
 
-		if (event_service->pressedLeftKey() || event_service->pressedAKey())
+		if (event_service->pressedLeftArrowKey() || event_service->pressedAKey())
 		{
 			moveLeft();
 		}
 
-		if (event_service->pressedRightKey() || event_service->pressedDKey())
+		if (event_service->pressedRightArrowKey() || event_service->pressedDKey())
 		{
 			moveRight();
 		}

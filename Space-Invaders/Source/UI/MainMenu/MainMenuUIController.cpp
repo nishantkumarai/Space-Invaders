@@ -1,7 +1,7 @@
 #include "../../header/UI/MainMenu/MainMenuUIController.h"
 #include "../../header/Main/GameService.h"
 #include "../../header/Global/ServiceLocator.h"
-#include "../../header/Graphic/GraphicService.h"
+#include "../../header/Graphics/GraphicService.h"
 
 namespace UI
 {
@@ -9,7 +9,7 @@ namespace UI
     {
         using namespace Global;
         using namespace Main;
-        using namespace Graphic;
+        using namespace Graphics;
         using namespace Event;
 
         MainMenuUIController::MainMenuUIController() { game_window = nullptr; }
@@ -99,6 +99,7 @@ namespace UI
             game_window->draw(quit_button_sprite);
         }
 
+        void MainMenuUIController::show() { }
 
         void MainMenuUIController::processButtonInteractions()
         {

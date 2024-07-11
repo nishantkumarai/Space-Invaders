@@ -8,7 +8,6 @@ namespace Enemy
 	class EnemyService
 	{
 	private:
-
 		const float spawn_interval = 3.f;
 
 		std::vector<EnemyController*> enemy_list;
@@ -26,6 +25,6 @@ namespace Enemy
 		void update();
 		void render();
 
-		void spawnEnemy();
+		EnemyController* spawnEnemy();
 	};
 }

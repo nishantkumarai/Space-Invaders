@@ -1,47 +1,45 @@
 #pragma once
-#include "../../Header/Graphic/GraphicService.h"
-#include "../../Header/Event/EventService.h"
-#include "../../Header/Player/PlayerService.h"
-#include "../../Header/Time/TimeService.h"
-#include "../../Header/UI/UIService.h"
-#include "../../Header/Enemy/EnemyService.h"
+#include "../../header/Graphics/GraphicService.h"
+#include "../../header/Event/EventService.h"
+#include "../../header/UI/UIService.h"
+#include "../../header/Player/PlayerService.h"
+#include "../../header/Time/TimeService.h"
+#include "../../header/Enemy/EnemyService.h"
+#include "../../header/Gameplay/GameplayService.h"
 
 namespace Global
 {
     class ServiceLocator
     {
     private:
-        // Private Attributes:
-        Graphic::GraphicService* graphic_service;
         Event::EventService* event_service;
-        Player::PlayerService* player_service;
-        Time::TimeService* time_service;
+        Graphics::GraphicService* graphic_service;
         UI::UIService* ui_service;
+        Time::TimeService* time_service;
+        Gameplay::GameplayService* gameplay_service;
+        Player::PlayerService* player_service;
         Enemy::EnemyService* enemy_service;
 
-        // Private Constructor and Destructor:
         ServiceLocator();
-        // Constructor for initializing the ServiceLocator.
-        ~ServiceLocator(); 	// Destructor for cleaning up resources upon object deletion.
+        ~ServiceLocator();
 
-        // Private Methods:
-        void createServices(); 			// Creates instances of all services.
-        void clearAllServices(); 		//	Deletes and deallocates memory for all services.
+        void createServices();
+        void clearAllServices();
 
     public:
-        // Public Methods:
-        static ServiceLocator* getInstance(); 			// Provides a method to access the unique ServiceLocator instance (object).
-        void initialize(); 			//	Initializes the ServiceLocator.
-        void update(); 				//	Updates all services.
-        void render(); 				//	Renders using the services.
+        static ServiceLocator* getInstance();
 
-        // Methods to Get Specific Services: 
-        Graphic::GraphicService* getGraphicService();
+        void initialize();
+        void update();
+        void render();
+
         Event::EventService* getEventService();
-        Player::PlayerService* getPlayerService();
-        Time::TimeService* getTimeService();
+        Graphics::GraphicService* getGraphicService();
         UI::UIService* getUIService();
+        Time::TimeService* getTimeService();
+        Gameplay::GameplayService* getGameplayService();
+        Player::PlayerService* getPlayerService();
         Enemy::EnemyService* getEnemyService();
-
+        void deleteServiceLocator();
     };
 }
