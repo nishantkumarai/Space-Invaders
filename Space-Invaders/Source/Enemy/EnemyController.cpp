@@ -2,10 +2,13 @@
 #include "../../Header/Enemy/EnemyView.h"
 #include "../../Header/Enemy/EnemyModel.h"
 #include "../../Header/Global/ServiceLocator.h"
+#include "../../header/Event/EventService.h"
 
 namespace Enemy
 {
 	using namespace Global;
+	using namespace Event;
+	using namespace Time;
 
 	EnemyController::EnemyController()
 	{
