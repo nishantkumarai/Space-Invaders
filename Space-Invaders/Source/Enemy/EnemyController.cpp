@@ -101,8 +101,5 @@ namespace Enemy
 		return enemy_model->getEnemyPosition();
 	}
 
-	EnemyState EnemyController::getEnemyState()
-	{
-		return enemy_model->getEnemyState();
-	}
+
 }
