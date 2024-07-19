@@ -64,10 +64,11 @@ namespace Global
 			gameplay_service->update();
 			player_service->update();
 			enemy_service->update();
+			element_service->update();
 		}
 
 		ui_service->update();
-		element_service->update();
+		
 	}
 
 	void ServiceLocator::render()
@@ -79,10 +80,11 @@ namespace Global
 			gameplay_service->render();
 			player_service->render();
 			enemy_service->render();
+			element_service->render(); 
 		}
 
 		ui_service->render();
-		element_service->render();
+		
 	}
 
 	void ServiceLocator::clearAllServices()
