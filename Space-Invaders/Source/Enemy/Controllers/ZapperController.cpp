@@ -10,32 +10,32 @@ namespace Enemy
 
     namespace Controller
     {
-        ZapperController::ZapperController(EnemyType type) : EnemyController(type) { }
+        ZapperController::ZapperController(EnemyType type) : EnemyController(type) { }  
 
         ZapperController::~ZapperController() { }
 
         void ZapperController::initialize()
         {
-            EnemyController::initialize(); // init the base controller
+            EnemyController::initialize(); 
         }
 
-        // Method for moving the Zapper enemy
+       
         void ZapperController::move()
         {
-            // Switch statement based on the movement direction of the enemy
+            
             switch (enemy_model->getMovementDirection())
             {
-                // If the movement direction is LEFT
+                
             case::Enemy::MovementDirection::LEFT:
                 moveLeft();
                 break;
 
-                // If the movement direction is RIGHT
+                
             case::Enemy::MovementDirection::RIGHT:
                 moveRight();
                 break;
 
-                // If the movement direction is DOWN
+                
             case::Enemy::MovementDirection::DOWN:
                 moveDown();
                 break;
