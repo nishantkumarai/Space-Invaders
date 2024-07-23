@@ -78,9 +78,7 @@ namespace Enemy
 		switch (enemy_type)
 		{
 		case::Enemy::EnemyType::ZAPPER:
-			return new ZapperController(Enemy::EnemyType::ZAPPER);  
-
-	
+			return new ZapperController(Enemy::EnemyType::ZAPPER);
 
 		case::Enemy::EnemyType::SUBZERO:
 			return new SubzeroController(Enemy::EnemyType::SUBZERO);
