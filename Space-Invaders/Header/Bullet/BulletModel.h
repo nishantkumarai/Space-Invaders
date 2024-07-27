@@ -3,34 +3,35 @@
 
 namespace Bullet
 {
-	enum class BulletType;
-	enum class MovementDirection;
+    enum class BulletType;
+    enum class MovementDirection;
 
-	class BulletModel
-	{
-	private:
-		float movement_speed = 300.f;
-		sf::Vector2f bullet_position;
+    class BulletModel
+    {
+    private:
+        float movement_speed = 300.f;
+        sf::Vector2f bullet_position;
 
-		BulletType bullet_type;
-		MovementDirection movement_direction;
+        BulletType bullet_type;
+        MovementDirection movement_direction;
 
-	public:
-		BulletModel(BulletType type);
-		~BulletModel();
+    public:
 
-		void initialize(sf::Vector2f position, MovementDirection direction);
+        BulletModel(BulletType type);
+        ~BulletModel();
 
-		sf::Vector2f getBulletPosition();
-		void setBulletPosition(sf::Vector2f position);
+        void initialize(sf::Vector2f position, MovementDirection direction);
 
-		BulletType getBulletType();
-		void setBulletType(BulletType type);
+        sf::Vector2f getBulletPosition();
+        void setBulletPosition(sf::Vector2f position);
 
-		MovementDirection getMovementDirection();
-		void setMovementDirection(MovementDirection direction);
+        BulletType getBulletType();
+        void setBulletType(BulletType type);
 
-		float getMovementSpeed();
-		void setMovementSpeed(float speed);
-	};
+        MovementDirection getMovementDirection();
+        void setMovementDirection(MovementDirection direction);
+
+        float getMovementSpeed();
+        void setMovementSpeed(float speed);
+    };
 }

@@ -7,7 +7,7 @@ namespace UI
 	namespace UIElement
 	{
 		using namespace Global;
-		using namespace Graphics;
+		using namespace Graphic;
 
 		UIView::UIView() = default;
 

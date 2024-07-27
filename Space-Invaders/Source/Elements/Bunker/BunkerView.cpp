@@ -9,7 +9,7 @@ namespace Element
 	namespace Bunker
 	{
 		using namespace Global;
-		using namespace Graphics;
+		using namespace Graphic;
 		using namespace UI::UIElement;
 
 		BunkerView::BunkerView() { createUIElements(); }

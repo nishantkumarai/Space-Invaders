@@ -8,7 +8,7 @@
 namespace Enemy
 {
 	using namespace Global;
-	using namespace Graphics;
+	using namespace Graphic;
 	using namespace UI::UIElement;
 
 	EnemyView::EnemyView() { createUIElements(); }

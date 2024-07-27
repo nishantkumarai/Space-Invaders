@@ -6,7 +6,7 @@
 namespace Main
 {
 	using namespace Global;
-	using namespace Graphics;
+	using namespace Graphic;
 	using namespace Event;
 	using namespace UI;
 

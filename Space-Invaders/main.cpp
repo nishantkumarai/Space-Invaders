@@ -1,11 +1,14 @@
 #include "Header/Main/GameService.h"
+using namespace Main;
 
 
-int main()
-{
-    using namespace Main;
+int main() {
+
+
+
 
     GameService* game_service = new GameService();
+
     game_service->ignite();
 
     while (game_service->isRunning())
@@ -13,6 +16,8 @@ int main()
         game_service->update();
         game_service->render();
     }
+
+
 
     return 0;
 }

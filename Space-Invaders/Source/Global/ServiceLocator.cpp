@@ -5,7 +5,7 @@
 
 namespace Global
 {
-	using namespace Graphics;
+	using namespace Graphic;
 	using namespace Time;
 	using namespace Event;
 	using namespace Player;

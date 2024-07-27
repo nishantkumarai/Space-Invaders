@@ -3,11 +3,10 @@
 
 namespace Player
 {
-    enum class PlayerState //Our Enum
+    enum class PlayerState
     {
         ALIVE,
         DEAD,
-        // we will add more states later
     };
 
     class PlayerModel
@@ -16,7 +15,7 @@ namespace Player
         const sf::Vector2f initial_player_position = sf::Vector2f(950.f, 950.f);
 
         sf::Vector2f player_position;
-        PlayerState player_state; //Declaration
+        PlayerState player_state;
         int player_score;
 
     public:
@@ -38,7 +37,6 @@ namespace Player
         int getPlayerScore();
         void setPlayerScore(int score);
 
-        //new getter and setter
         PlayerState getPlayerState();
         void setPlayerState(PlayerState state);
 
