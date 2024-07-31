@@ -26,7 +26,7 @@ namespace Bullet
 		for (int i = 0; i < bullet_list.size(); i++) bullet_list[i]->render();
 	}
 
-	BulletController* BulletService::createBullet(BulletType bullet_type)
+	BulletController* BulletService::createBullet(BulletType bullet_type, Entity::EntityType owner_type)
 	{
 		switch (bullet_type)
 		{

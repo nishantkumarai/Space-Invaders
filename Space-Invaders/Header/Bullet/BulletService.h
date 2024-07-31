@@ -2,6 +2,7 @@
 #include <vector>
 #include "SFML/System/Vector2.hpp"
 #include "../../Header/Projectile/IProjectile.h"
+#include "../../header/Entity/EntityConfig.h"
 
 namespace Bullet
 {
@@ -14,7 +15,7 @@ namespace Bullet
 	private:
 		std::vector<Projectile::IProjectile*> bullet_list;
 
-		BulletController* createBullet(BulletType bullet_type);
+		BulletController* createBullet(BulletType bullet_type, Entity::EntityType owner_type);
 		void destroy();
 
 	public:
