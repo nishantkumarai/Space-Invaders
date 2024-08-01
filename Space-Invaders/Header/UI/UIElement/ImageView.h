@@ -19,6 +19,7 @@ namespace UI
 			virtual void update() override;
 			virtual void render() override;
 
+			const virtual sf::Sprite& getSprite();
 			virtual void setTexture(sf::String texture_path);
 			virtual void setScale(float width, float height);
 			virtual void setPosition(sf::Vector2f position);

@@ -5,6 +5,7 @@
 #include "../../header/Powerup/PowerupController.h"
 #include "../../header/Powerup/PowerupConfig.h"
 
+
 namespace Powerup
 {
 	using namespace Global;
@@ -57,6 +58,11 @@ namespace Powerup
 		case::Powerup::PowerupType::OUTSCAL_BOMB:
 			return Config::outscal_bomb_texture_path;
 		}
+	}
+
+	const sf::Sprite& PowerupView::getPowerupSprite()
+	{
+		return powerup_image->getSprite();
 	}
 
 	void PowerupView::destroy()
