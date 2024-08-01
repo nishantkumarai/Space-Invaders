@@ -44,6 +44,8 @@ namespace Player
         void disableRapidFire();
         void disableTrippleLaser();
 
+
+
     public:
         PlayerController();
         ~PlayerController();
@@ -53,6 +55,10 @@ namespace Player
         void render();
 
         void reset();
+
+        void decreasePlayerLive();
+        inline void increaseEnemiesKilled(int val) { PlayerModel::enemies_killed += val; }
+
 
         void enableShield();
         void enableRapidFire();

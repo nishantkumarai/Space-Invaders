@@ -8,7 +8,9 @@ namespace Bullet
     class BulletView;
     class BulletModel;
 
+
     enum class BulletType;
+
 
     class BulletController : public Projectile::IProjectile, public Collision::ICollider
     {
@@ -31,7 +33,7 @@ namespace Bullet
         BulletController(BulletType bullet_type, Entity::EntityType owner_type);
         virtual ~BulletController();
 
-        void initialize(sf::Vector2f position, MovementDirection direction) override;
+        void initialize(sf::Vector2f position, Bullet::MovementDirection direction) override;
         void update() override;
         void render() override;
 

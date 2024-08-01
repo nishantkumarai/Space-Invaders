@@ -1,7 +1,7 @@
 #include "../../Header/Graphics/GraphicService.h"
 
 
-namespace Graphic
+namespace Graphics
 {
 	GraphicService::GraphicService()
 	{

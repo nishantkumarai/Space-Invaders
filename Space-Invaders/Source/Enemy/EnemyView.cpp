@@ -8,7 +8,7 @@
 namespace Enemy
 {
 	using namespace Global;
-	using namespace Graphic;
+	using namespace Graphics;
 	using namespace UI::UIElement;
 
 	EnemyView::EnemyView() { createUIElements(); }
@@ -40,6 +40,11 @@ namespace Enemy
 	void EnemyView::render()
 	{
 		enemy_image->render();
+	}
+
+	const sf::Sprite& EnemyView::getEnemySprite()
+	{
+		return enemy_image->getSprite();
 	}
 
 	sf::String EnemyView::getEnemyTexturePath()

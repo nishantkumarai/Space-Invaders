@@ -19,7 +19,7 @@ namespace Enemy
         float rate_of_fire = 3.f;
         float elapsed_fire_duration = 0.f;
 
-        ;
+
 
         EnemyView* enemy_view;
         EnemyModel* enemy_model;

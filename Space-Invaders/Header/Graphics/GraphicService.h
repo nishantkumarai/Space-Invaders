@@ -2,7 +2,7 @@
 
 #include <SFML/Graphics.hpp>
 
-namespace Graphic
+namespace Graphics
 {
 	class GraphicService
 	{
