@@ -19,14 +19,17 @@ namespace UI
 			virtual void update() override;
 			virtual void render() override;
 
-			const virtual sf::Sprite& getSprite();
 			virtual void setTexture(sf::String texture_path);
+			virtual void setTextureRect(sf::IntRect texture_rect);
 			virtual void setScale(float width, float height);
+			virtual void setScale(float width, float height, float tile_width, float tile_height);
 			virtual void setPosition(sf::Vector2f position);
 			virtual void setRotation(float rotation_angle);
 			virtual void setOriginAtCentre();
 			virtual void setImageAlpha(float alpha);
 			virtual void setCentreAlinged();
+
+			const virtual sf::Sprite& getSprite();
 		};
 	}
 }
