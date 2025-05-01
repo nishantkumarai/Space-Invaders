@@ -26,8 +26,9 @@ namespace Main
 		sf::RenderWindow* game_window;
 
 		void initialize();
-		void initializeVariables();// Handles game initialization.
-		void showMainMenu();
+		void initializeVariables();
+		void showSplashScreen();
+		void destroy();
 
 	public:
 
